@@ -1,12 +1,37 @@
+import { Routes, Route } from 'react-router-dom'
 import CatFetcher from './components/CatFetcher'
-import './App.css'
+import CatDetails from './components/CatDetails'
+import FavoritesPage from './components/FavoritesPage'
+import Layout from './components/Layout'
 
 function App() {
   return (
-    <div className="app-container">
-      <h1>Cat App - Stepanov 4332</h1>
-      <CatFetcher />
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Layout>
+            <CatFetcher />
+          </Layout>
+        }
+      />
+      <Route
+        path="/favorites"
+        element={
+          <Layout>
+            <FavoritesPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="/details/:id"
+        element={
+          <Layout>
+            <CatDetails />
+          </Layout>
+        }
+      />
+    </Routes>
   )
 }
 
